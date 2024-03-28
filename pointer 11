@@ -1,0 +1,22 @@
+#include <iostream>
+
+// Function to add two integers
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    // Declare a pointer to a function that takes two integers as arguments and returns an integer
+    int (*ptr)(int, int);
+
+    // Assign the address of the function 'add' to the pointer
+    ptr = add;
+
+    // Call the function using the pointer
+    int result = ptr(3, 4);
+
+    // Display the result
+    std::cout << "Result of add function: " << result << std::endl;
+
+    return 0;
+}

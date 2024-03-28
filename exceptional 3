@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stdexcept>
+
+// Custom exception class
+class MyException : public std::exception {
+public:
+    const char* what() const noexcept override {
+        return "Custom Exception: Something went wrong!";
+    }
+};
+
+// Function that throws a custom exception
+void someFunction() {
+    // Simulating an error condition
+    throw MyException();
+}
+
+int main() {
+    try {
+        someFunction();
+    } catch(const MyException& e) {
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}

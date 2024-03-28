@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main() {
+    // Create an array of characters
+    char arr[] = {'H', 'e', 'l', 'l', 'o', '!', '\0'}; // Null-terminated string
+
+    // Create a pointer to the array
+    char* ptr = arr;
+
+    // Display the values of the array using the pointer
+    std::cout << "Values of the array using pointer: ";
+    while (*ptr != '\0') {
+        std::cout << *ptr;
+        ptr++;
+    }
+    std::cout << std::endl;
+
+    return 0;
+}

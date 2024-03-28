@@ -1,0 +1,22 @@
+#include <iostream>
+#include <stdexcept> // Include the <stdexcept> header for standard exception classes
+
+// Function that throws an exception
+void someFunction(int value) {
+    if (value < 0) {
+        // If the value is negative, throw an instance of std::runtime_error
+        throw std::runtime_error("Value cannot be negative!");
+    }
+}
+
+int main() {
+    try {
+        // Call the function with a negative value
+        someFunction(-5);
+    } catch(const std::exception& e) {
+        // Catch any exception derived from std::exception
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}

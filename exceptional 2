@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main() {
+    try {
+        // Outer try block
+        try {
+            // Inner try block
+            int num1 = 10;
+            int num2 = 0;
+            std::cout << "Division result: " << num1 / num2 << std::endl; // Attempting division by zero
+        } catch(const std::exception& inner_exception) {
+            std::cerr << "Inner Exception: " << inner_exception.what() << std::endl;
+        }
+
+        int* ptr = nullptr;
+        std::cout << "Dereferencing null pointer: " << *ptr << std::endl; // Attempting to dereference null pointer
+    } catch(const std::exception& outer_exception) {
+        std::cerr << "Outer Exception: " << outer_exception.what() << std::endl;
+    }
+
+    return 0;
+}

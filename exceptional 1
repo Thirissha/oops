@@ -1,0 +1,40 @@
+#include <iostream>
+#include <memory>
+
+// Example resource class
+class Resource {
+public:
+    Resource() {
+        std::cout << "Resource acquired." << std::endl;
+    }
+
+    ~Resource() {
+        std::cout << "Resource released." << std::endl;
+    }
+
+    void doSomething() {
+        // Simulate some work with the resource
+        std::cout << "Doing something with the resource." << std::endl;
+    }
+};
+
+void exampleFunction() {
+    // Acquire resource using a smart pointer
+    std::shared_ptr<Resource> ptr(new Resource());
+
+    // Use try-catch to handle exceptions
+    try {
+        // Simulate some operation that might throw an exception
+        throw std::runtime_error("Something went wrong.");
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+
+    // The resource will be automatically released when 'ptr' goes out of scope
+}
+
+int main() {
+    exampleFunction();
+
+    return 0;
+}

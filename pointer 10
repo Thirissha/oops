@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+class MyClass {
+private:
+    int id;
+    std::string name;
+
+public:
+    // Constructor
+    MyClass(int id, std::string name) : id(id), name(name) {}
+
+    // Getter functions
+    int getId() const {
+        return id;
+    }
+
+    std::string getName() const {
+        return name;
+    }
+};
+
+int main() {
+    // Create an object of MyClass
+    MyClass obj(1001, "Example");
+
+    // Create a pointer to the object
+    MyClass* ptr = &obj;
+
+    // Display the attributes of the object using the pointer
+    std::cout << "Object attributes using pointer:" << std::endl;
+    std::cout << "ID: " << ptr->getId() << std::endl;
+    std::cout << "Name: " << ptr->getName() << std::endl;
+
+    return 0;
+}

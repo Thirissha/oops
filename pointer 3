@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    // Create a pointer to a char
+    char* ptr;
+
+    // Create a char variable
+    char letter = 'A';
+
+    // Assign the address of 'letter' to the pointer
+    ptr = &letter;
+
+    // Display the value of the char using the pointer
+    std::cout << "Value of the char using pointer: " << *ptr << std::endl;
+
+    return 0;
+}

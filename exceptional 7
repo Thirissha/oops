@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stdexcept>
+
+// Function that throws an exception
+void someFunction(int value) {
+    if (value == 0) {
+        throw std::runtime_error("Division by zero error!"); // Throws a runtime_error
+    }
+}
+
+int main() {
+    int value;
+    std::cout << "Enter a value: ";
+    std::cin >> value;
+
+    try {
+        // Call the function that might throw an exception
+        someFunction(value);
+        std::cout << "Result: " << 10 / value << std::endl; // Division operation
+    } catch(const std::runtime_error& e) {
+        // Catch the runtime_error exception
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+    } catch(...) {
+        // Catch any other type of exception
+        std::cerr << "Caught unknown exception!" << std::endl;
+    }
+
+    return 0;
+}

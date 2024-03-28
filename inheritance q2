@@ -1,0 +1,112 @@
+#include <iostream>
+#include <string>
+
+class Vehicle {
+protected:
+    std::string make;
+    std::string model;
+    int year;
+
+public:
+    Vehicle(std::string make, std::string model, int year) : make(make), model(model), year(year) {}
+
+    // Getter and setter for make
+    std::string getMake() const {
+        return make;
+    }
+
+    void setMake(std::string newMake) {
+        make = newMake;
+    }
+
+    // Getter and setter for model
+    std::string getModel() const {
+        return model;
+    }
+
+    void setModel(std::string newModel) {
+        model = newModel;
+    }
+
+    // Getter and setter for year
+    int getYear() const {
+        return year;
+    }
+
+    void setYear(int newYear) {
+        year = newYear;
+    }
+};
+
+class Car : public Vehicle {
+private:
+    int seatingCapacity;
+    std::string fuelType;
+
+public:
+    Car(std::string make, std::string model, int year, int seatingCapacity, std::string fuelType)
+        : Vehicle(make, model, year), seatingCapacity(seatingCapacity), fuelType(fuelType) {}
+
+    // Getter and setter for seating capacity
+    int getSeatingCapacity() const {
+        return seatingCapacity;
+    }
+
+    void setSeatingCapacity(int newSeatingCapacity) {
+        seatingCapacity = newSeatingCapacity;
+    }
+
+    // Getter and setter for fuel type
+    std::string getFuelType() const {
+        return fuelType;
+    }
+
+    void setFuelType(std::string newFuelType) {
+        fuelType = newFuelType;
+    }
+};
+
+class Truck : public Vehicle {
+private:
+    int payloadCapacity;
+    int towingCapacity;
+
+public:
+    Truck(std::string make, std::string model, int year, int payloadCapacity, int towingCapacity)
+        : Vehicle(make, model, year), payloadCapacity(payloadCapacity), towingCapacity(towingCapacity) {}
+
+    // Getter and setter for payload capacity
+    int getPayloadCapacity() const {
+        return payloadCapacity;
+    }
+
+    void setPayloadCapacity(int newPayloadCapacity) {
+        payloadCapacity = newPayloadCapacity;
+    }
+
+    // Getter and setter for towing capacity
+    int getTowingCapacity() const {
+        return towingCapacity;
+    }
+
+    void setTowingCapacity(int newTowingCapacity) {
+        towingCapacity = newTowingCapacity;
+    }
+};
+
+int main() {
+    Car myCar("Toyota", "Corolla", 2022, 5, "Gasoline");
+    Truck myTruck("Ford", "F-150", 2021, 2000, 5000);
+
+    // Example of using getters and setters
+    myCar.setYear(2023);
+    myTruck.setPayloadCapacity(2500);
+
+    std::cout << "Car: " << myCar.getMake() << " " << myCar.getModel() << " " << myCar.getYear()
+              << ", Seating Capacity: " << myCar.getSeatingCapacity() << ", Fuel Type: " << myCar.getFuelType() << std::endl;
+
+    std::cout << "Truck: " << myTruck.getMake() << " " << myTruck.getModel() << " " << myTruck.getYear()
+              << ", Payload Capacity: " << myTruck.getPayloadCapacity() << ", Towing Capacity: " << myTruck.getTowingCapacity() << std::endl;
+
+    return 0;
+}

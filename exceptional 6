@@ -1,0 +1,31 @@
+#include <iostream>
+#include <stdexcept>
+
+// Function that throws different types of exceptions
+void someFunction(int value) {
+    if (value == 0) {
+        throw std::logic_error("Value cannot be zero!"); // Throws a logic_error
+    } else if (value < 0) {
+        throw std::runtime_error("Value cannot be negative!"); // Throws a runtime_error
+    }
+}
+
+int main() {
+    try {
+        // Call the function with different values
+        someFunction(0);
+        // someFunction(-5); // Uncomment to test the runtime_error
+    } catch(const std::logic_error& e) {
+        // Catch logic_error exceptions
+        std::cerr << "Caught logic_error: " << e.what() << std::endl;
+    } catch(const std::runtime_error& e) {
+        // Catch runtime_error exceptions
+        std::cerr << "Caught runtime_error: " << e.what() << std::endl;
+    } catch(const std::exception& e) {
+        // Catch any other exceptions derived from std::exception
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+

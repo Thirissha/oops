@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+class Car {
+private:
+    std::string make;
+    std::string model;
+    int year;
+
+public:
+    // Constructor
+    Car(std::string make, std::string model, int year) : make(make), model(model), year(year) {
+        std::cout << "A new car has been created: " << year << " " << make << " " << model << std::endl;
+    }
+
+    // Destructor
+    ~Car() {
+        std::cout << "The car has been destroyed: " << year << " " << make << " " << model << std::endl;
+    }
+
+    // Other member functions can be added here
+    void start() {
+        std::cout << "Starting the car: " << year << " " << make << " " << model << std::endl;
+    }
+
+    void stop() {
+        std::cout << "Stopping the car: " << year << " " << make << " " << model << std::endl;
+    }
+};
+
+int main() {
+    // Creating an object of Car class
+    Car myCar("Toyota", "Corolla", 2022);
+
+    // Using member functions
+    myCar.start();
+    myCar.stop();
+
+    return 0;
+}

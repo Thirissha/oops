@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+
+class BankAccount {
+private:
+    std::string accountNumber;
+    double balance;
+
+public:
+    // Constructor
+    BankAccount(std::string accNumber, double initialBalance) : accountNumber(accNumber), balance(initialBalance) {
+        std::cout << "Account created with account number: " << accountNumber << std::endl;
+    }
+
+    // Destructor
+    ~BankAccount() {
+        std::cout << "Account with account number: " << accountNumber << " is destroyed" << std::endl;
+    }
+
+    // Other member functions can be added here
+    void deposit(double amount) {
+        balance += amount;
+        std::cout << "Deposited " << amount << " into account " << accountNumber << std::endl;
+    }
+
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            std::cout << "Withdrawn " << amount << " from account " << accountNumber << std::endl;
+        } else {
+            std::cout << "Insufficient funds in account " << accountNumber << std::endl;
+        }
+    }
+
+    void displayBalance() {
+        std::cout << "Account " << accountNumber << " has a balance of " << balance << std::endl;
+    }
+};
+
+int main() {
+    // Creating objects of BankAccount class
+    BankAccount acc1("12345", 1000.0);
+    BankAccount acc2("67890", 500.0);
+
+    // Using member functions
+    acc1.deposit(500.0);
+    acc2.withdraw(200.0);
+
+    acc1.displayBalance();
+    acc2.displayBalance();
+
+    return 0;
+}

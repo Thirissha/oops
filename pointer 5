@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    // Create a pointer to a string
+    std::string* ptr;
+
+    // Create a string variable
+    std::string text = "Hello, World!";
+
+    // Assign the address of 'text' to the pointer
+    ptr = &text;
+
+    // Display the value of the string using the pointer
+    std::cout << "Value of the string using pointer: " << *ptr << std::endl;
+
+    return 0;
+}
